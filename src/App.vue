@@ -1,12 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <navigation v-if="(mView === false)"></navigation>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import navigation from "./layout/navigation";
+
+export default {
+    name: 'home',
+    data() {
+        return {
+            mView: false,
+        };
+    },
+    components: {
+        navigation,
+    },
+    methods: {
+
+    },
+    created() {
+        const device =navigator.userAgent.split(" ")[1].split("(")[1].split(";")[0];
+        console.log(device);
+        if ( device === 'iPhone' || device === 'Linux' ) {
+            console.log('mobile devices');
+            this.mView = true;
+        }
+    }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -17,7 +41,7 @@
   color: #2c3e50;
 }
 #nav {
-  padding: 30px;
+  padding: 0;
   a {
     font-weight: bold;
     color: #2c3e50;

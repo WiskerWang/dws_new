@@ -32,10 +32,20 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+    name: 'HelloWorld',
+    props: {
+        msg: String
+    },
+    methods: {
+    },
+    created() {
+        this.$http.get('http://localhost:8081/').then(function(res){
+            console.log(res.body);
+            // document.write(res.body);
+        },function(){
+            console.log('请求失败处理');
+        });
+    },
 }
 </script>
 
