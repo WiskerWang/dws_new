@@ -1,12 +1,14 @@
 <template>
-  <div id="app">
-    <navigation v-if="(mView === false)"></navigation>
+  <div>
+    <navigation v-if="(mView === false)"  id="app"></navigation>
+    <mobile-navigation v-if="(mView === true)" class="font-weight-black"></mobile-navigation>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import navigation from "./layout/navigation";
+import mobileNavigation from "./layout/m-navigation"
 
 export default {
     name: 'home',
@@ -17,6 +19,7 @@ export default {
     },
     components: {
         navigation,
+        mobileNavigation,
     },
     methods: {
 
@@ -40,6 +43,15 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+/*#v-app {*/
+/*  font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+/*  text-align: center;*/
+/*  color: #2c3e50;*/
+/*}*/
+
 #nav {
   padding: 0;
   a {

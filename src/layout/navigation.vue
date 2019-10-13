@@ -22,7 +22,7 @@ import navHead from "./navHead";
 import navAside from "./navAside";
 
 export default {
-    name: "narvigation",
+    name: "navigation",
     data() {
         return {
             isCollapse: true,
